@@ -1,0 +1,14 @@
+{
+  "name": "mhb",
+  "version": "1.0.0",
+  "description": "Computer Science at University of Paderborn",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saman Soltani",
+  "license": "MIT",
+  "dependencies": {
+    "pdf-text-extract": "^1.5.0"
+  }
+}

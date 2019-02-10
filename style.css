@@ -1,0 +1,40 @@
+.item {
+  margin-bottom: 30px;
+}
+
+.columns.search {
+  margin: 20px 0;
+}
+
+.columns.list {
+  background: #eee;
+  border-radius: 3px;
+}
+
+.item h2 {
+  font-size: 18px;
+}
+
+.item p {
+  padding: 10px 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.pdf {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #E0604C;
+  margin-left: 5px;
+}
+
+.prof {
+  text-align: right;
+}
+
+table {
+  margin: 10px 0;
+  font-size: 14px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Master of Computer Science Module Handbook - University of Paderborn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://use.fontawesome.com/3706dc4fda.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/buefy@0.6.7/dist/buefy.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <div id="app" class="hisde container">
+    <div class="columns search">
+      <div class="column">
+        <b-field>
+          <b-input placeholder="Search..." type="search" icon="magnify" v-model="search"></b-input>
+        </b-field>
+      </div>
+    </div>
+    <div class="item" v-for="item in filteredList">
+      <div class="columns list">
+        <div class="column">
+          <h2>
+            {{item.title}} ({{item.items.credits}})
+            <button v-on:click="item.count = !item.count" :class="{ 'is-success': item.count }"
+              class="button is-small">Detail</button>
+            <a class="button is-small pdf" target="_blank"
+              :href="'https://cs.uni-paderborn.de/fileadmin/informatik/Studium/Studiumangebot/Informatik/Informatik2017/MHB_Master_EN.pdf#page=' + item.page">
+              PDF
+            </a>
+          </h2>
+        </div>
+        <div class="column prof">
+          <a target="_blank"
+            :href="'https://www.uni-paderborn.de/en/suche/?q=' + item.items.person_responsible_for_the_module">
+            {{item.items.person_responsible_for_the_module}}
+          </a>
+        </div>
+      </div>
+      <p v-html="$options.filters.n2b(item.items.content)"></p>
+      <div :class="{hidden: !item.count}">
+        <table class="table is-bordered is-striped is-narrow is-fullwidth">
+          <tr v-for="(v, k) in item.items">
+            <td>{{k}}</td>
+            <td>{{v}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+  <script src="https://unpkg.com/buefy"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
