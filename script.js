@@ -23,6 +23,11 @@ var app = new Vue({
     this.runApp();
   },
   methods: {
+    toTitleCase: function(str) {
+      return str.replace(/\w\S*/g, function(txt){
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+    },
     runApp: function () {
       this.$http.get(dataFile).then(apiResponse => {
         this.list = apiResponse.body;

@@ -15,6 +15,13 @@
 <body>
   <div id="app" class="hisde container">
     <div class="columns search">
+      <div class="column has-text-centered	">
+        <h1 class="title is-1">Module Handook</h1>
+        <h2 class="subtitle is-2">Master Computer Science</h2>
+        <h3 class="subtitle is-3">Paderborn University</h3>
+      </div>
+    </div>
+    <div class="columns search">
       <div class="column">
         <b-field>
           <b-input placeholder="Search..." type="search" icon="magnify" v-model="search"></b-input>
@@ -45,7 +52,7 @@
       <div :class="{hidden: !item.count}">
         <table class="table is-bordered is-striped is-narrow is-fullwidth">
           <tr v-for="(v, k) in item.items">
-            <td>{{k}}</td>
+            <td>{{toTitleCase(k.replace(/_/g, '&nbsp'))}}</td>
             <td>{{v}}</td>
           </tr>
         </table>
